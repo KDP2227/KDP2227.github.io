@@ -1,0 +1,371 @@
+@charset "UTF-8";
+html {
+    font-size: 100%;
+}
+body {
+    color: #121212;
+    font-family: Arial, sans-serif;
+}
+a {
+    color: #121212;
+    text-decoration: none;
+}
+img {
+    max-width: 100%;
+    vertical-align: bottom;
+}
+li {
+    list-style: none;
+}
+
+/* サイドメニューの横幅分だけ左にmarginをとる */
+.container {
+    margin-left: 300px;
+}
+/* コンテンツ幅を設定するための共通クラス */
+.wrapper {
+    max-width: 900px;
+    padding: 80px 20px;
+    margin: 0 auto;
+}
+.site-title {
+    width: 200px;
+    line-height: 1px;
+    margin-bottom: 30px;
+}
+.site-title a {
+    display: block;
+}
+/*
+セクションタイトル用の共通クラス
+両サイドの線は疑似要素で作成して、Flexboxで横並びに配置
+※beforeが左の線、afterが右の線
+*/
+.sec-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.75rem;
+    margin-bottom: 60px;
+    text-align: center;
+}
+.sec-title::before,
+.sec-title::after {
+    border-top: 1px solid;
+    content: "";
+    width: 28%;
+}
+
+/*-------------------------------------------
+ヘッダー
+-------------------------------------------*/
+#header {
+    width: 300px;
+    height: 100%;
+    background-color: #fff;
+    padding: 40px 50px 30px 45px;
+    position: fixed;
+    top: 0;
+    /* 画面の高さが低くてメニューが隠れてしまった場合に、縦スクロールが出るよう設定 */
+    overflow-y: auto;
+}
+#header .nav-menu {
+    margin-bottom: 60px;
+}
+#header li {
+    font-size: 0.875rem;
+    padding: 8px 0;
+}
+
+/*-------------------------------------------
+About
+-------------------------------------------*/
+#about {
+    padding-bottom: 30px;
+}
+#about .link {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 60px;
+}
+#about .link .item {
+    width: 30%;
+    border: solid 1px #121212;
+    display: block;
+    font-size: 0.875rem;
+    position: relative;
+    padding: 50px 0;
+    text-align: center;
+    transition: 0.1s;
+}
+#about .link .item::before {
+    content: "";
+    border-top: 20px solid transparent;
+    border-right: 20px solid #121212;
+    position: absolute;
+    right: 4px;
+    bottom: 4px;
+}
+#about h3{
+    display: block;
+    color: #df5637;
+    padding: 5px 0;
+}
+#about p{
+    padding: 5px 0;
+}
+/*
+ホバー時は枠線を太くする
+*/
+#about .link .item:hover {
+    outline: solid 3px #121212;
+}
+#about .link .item img {
+    margin-bottom: 5px;
+}
+
+/*-------------------------------------------
+Event
+-------------------------------------------*/
+/* 背景に黒の透過グラデーションを設定 */
+#event {
+    background: linear-gradient(rgba(234,234,225,0.9),rgba(121,81,17,0.2));
+}
+#event .list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+#event .list li {
+    width: 47%;
+    border: solid 1px #fff;
+    margin-bottom: 50px;
+    position: relative;
+}
+#event .list img{
+    width: 100%;
+    height: 400px;
+    object-fit: contain;
+}
+/* 下段の2つはマージンを設定しない */
+#event .list li:last-child,
+#event .list li:nth-last-child(2) {
+    margin-bottom: 0;
+}
+#event .list li a {
+    display: block;
+    background-color: #fff;
+}
+/* 疑似要素を使用して、テキストの下に「box-shadow」で影を付ける */
+#event .list li a::after {
+    content: "";
+    box-shadow: 0 -50px 15px -1px #2e2e2e inset;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+#event .list .name {
+    color: #fff;
+    font-size: 0.75rem;
+    position: absolute;
+    bottom: 24px;
+    left: 7px;
+    z-index: 5;
+}
+#event .list .date {
+    color: #fff;
+    font-size: 0.75rem;
+    position: absolute;
+    bottom: 4px;
+    left: 7px;
+    z-index: 5;
+  }
+
+/*-------------------------------------------
+Contact
+-------------------------------------------*/
+#contact {
+    background-color: #fff;
+    padding-bottom: 80px;
+}
+#contact .link {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 60px;
+}
+#contact .link .item {
+    width: 30%;
+    border: solid 1px #121212;
+    display: block;
+    font-size: 0.875rem;
+    position: relative;
+    padding: 50px 0;
+    text-align: center;
+    transition: 0.1s;
+}
+#contact .link .item::before {
+    content: "";
+    border-top: 20px solid transparent;
+    border-right: 20px solid #121212;
+    position: absolute;
+    right: 4px;
+    bottom: 4px;
+}
+/*
+ホバー時は枠線を太くする
+*/
+#contact .link .item:hover {
+    outline: solid 3px #121212;
+}
+#contact .link .item img {
+    margin-bottom: 5px;
+}
+
+/*-------------------------------------------
+フッター
+-------------------------------------------*/
+#footer {
+    background-color: #121212;
+    color: #fff;
+    padding: 20px 0;
+}
+#footer .menu {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0 60px 0;
+}
+#footer .menu li {
+    border-right: solid 1px #fff;
+    font-size: 0.875rem;
+    padding: 0 20px;
+}
+#footer .menu li:last-child {
+    border-right: none;
+}
+#footer .menu li a {
+    color: #fff;
+}
+#footer .copyright {
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+/*-------------------------------------------
+スマートフォン
+-------------------------------------------*/
+@media screen and (max-width: 960px) {
+.container {
+    margin-left: 0;
+}
+.wrapper {
+    padding: 60px 20px;
+}
+.site-title {
+    width: 180px;
+    margin-bottom: 0;
+    position: relative;
+    left: 18px;
+    top: 10px;
+}
+.sec-title {
+    font-size: 1.25rem;
+    margin-bottom: 30px;
+}
+.sec-title::before,
+.sec-title::after {
+    width: 18%;
+}
+
+/*-------------------------------------------
+ヘッダー
+-------------------------------------------*/
+#header {
+    width: 100%;
+    height: 72px;
+    padding: 0;
+    z-index: 10;
+}
+#header img{
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    margin: 0;
+}
+#navi {
+    width: 300px;
+    background: #fff;
+    padding: 25px;
+    position: fixed;
+    top: 0;
+    left: -300px;
+    bottom: 0;
+    opacity: 0;
+    overflow-y: auto;
+    transition: 0.5s;
+    z-index: 20;
+}
+/*-------------------------------------------
+About
+-------------------------------------------*/
+#about {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+#about .link {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+#about .link .item {
+    width: 60%;
+    margin: 20px 0 0 0;
+}
+#about .link .item:first-child {
+    margin-top: 0;
+}
+
+/*-------------------------------------------
+Event
+-------------------------------------------*/
+#event .list {
+    flex-direction: column;
+}
+#event .list li {
+    width: 100%;
+    margin-bottom: 30px;
+}
+#event .list li:nth-last-child(2) {
+    margin-bottom: 30px;
+}
+
+/*-------------------------------------------
+Contact
+-------------------------------------------*/
+#contact {
+    padding-bottom: 60px;
+}
+#contact .link {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+#contact .link .item {
+    width: 60%;
+    margin: 20px 0 0 0;
+}
+#contact .link .item:first-child {
+    margin-top: 0;
+}
+
+/*-------------------------------------------
+フッター
+-------------------------------------------*/
+#footer .menu {
+    flex-wrap: wrap;
+}
+#footer .menu li {
+    margin-bottom: 10px;
+}
+}
